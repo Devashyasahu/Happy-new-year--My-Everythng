@@ -1,0 +1,283 @@
+/* GLOBAL STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  overflow-x: hidden;
+  color: #444;
+}
+
+/* START OVERLAY (Fixes Audio Autoplay) */
+#start-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #fff0f6, #ffdde1);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.8s ease;
+}
+
+#start-btn {
+  padding: 18px 45px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
+  transition: all 0.3s ease;
+}
+
+#start-btn:hover {
+  transform: scale(1.1) translateY(-5px);
+  background: #ff758c;
+  box-shadow: 0 15px 30px rgba(255, 77, 109, 0.5);
+}
+
+/* CANVAS LAYER */
+#canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allows clicks to pass through to elements below */
+  z-index: 100;
+}
+
+/* INTRO SECTION */
+#intro {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 3rem 2rem;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+#intro h1 {
+  font-size: 3.5rem;
+  color: white;
+  text-shadow: 2px 4px 10px rgba(255, 105, 180, 0.5);
+  margin-bottom: 10px;
+}
+
+#intro p {
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+/* LETTER SECTION */
+#letter {
+  min-height: 100vh;
+  background: #fff0f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.scroll {
+  background: #fff;
+  background-image: linear-gradient(#fdf1e7 1.1rem, #ccc 1.2rem);
+  background-size: 100% 1.2rem;
+  line-height: 1.2rem;
+  padding: 50px 40px;
+  border-radius: 15px;
+  max-width: 650px;
+  width: 100%;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border-left: 5px solid #ffb3c1;
+}
+
+#letterText {
+  font-family: 'Georgia', serif;
+  font-size: 1.3rem;
+  color: #5b3a29;
+  line-height: 1.8;
+  min-height: 200px;
+}
+
+/* MEMORIES SLIDESHOW */
+#memories {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fde2e4;
+  padding: 50px 20px;
+}
+
+.slideshow {
+  width: 320px;
+  height: 450px;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  border: 8px solid white;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* VOICE SECTION */
+#voice-section {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #ffe6f0, #ffd6e8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.voice-box {
+  padding: 30px 60px;
+  background: white;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #ff4d6d;
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.voice-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4);
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 600px) {
+  #intro h1 { font-size: 2.2rem; }
+  .slideshow { width: 280px; height: 400px; }
+  .scroll { padding: 30px 20px; }
+  #letterText { font-size: 1.1rem; }
+}
+/* MOBILE OPTIMIZATIONS */
+@media (max-width: 768px) {
+  /* 1. Scale down the Intro text */
+  #intro h1 {
+    font-size: 2.2rem;
+    padding: 0 15px;
+  }
+  
+  .glass-card {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  /* 2. Make the Letter fit the screen width */
+  .scroll {
+    width: 95%;
+    padding: 30px 20px;
+    margin: 20px auto;
+  }
+
+  #letterText {
+    font-size: 1.1rem; /* Slightly smaller text for readability */
+    line-height: 1.6;
+  }
+
+  /* 3. Resize the Slideshow for smaller screens */
+  .slideshow {
+    width: 85vw;    /* 85% of the screen width */
+    height: 120vw;  /* Maintains a portrait aspect ratio */
+    border-width: 5px;
+  }
+
+  /* 4. Adjust the Voice Box button */
+  .voice-box {
+    width: 80%;
+    padding: 20px;
+    font-size: 1rem;
+    justify-content: center;
+  }
+
+  /* 5. Prevent unwanted horizontal scrolling */
+  body, html {
+    overflow-x: hidden;
+    position: relative;
+  }
+}
+
+/* Fix for very small phones (like iPhone SE) */
+@media (max-width: 380px) {
+  #intro h1 { font-size: 1.8rem; }
+  #letterText { font-size: 1rem; }
+}/* Mobile Instruction Styling */
+.mobile-instruction {
+  text-align: center;
+  color: #ff4d6d;
+  margin-bottom: 10px;
+  padding: 0 20px;
+}
+
+.mobile-instruction p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.mobile-instruction .sub-text {
+  font-size: 0.9rem;
+  color: #888;
+  font-style: italic;
+}
+
+/* Ensure the overlay background looks like a dream */
+#start-overlay {
+  background: #fff0f6;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive button for her thumb */
+#start-btn {
+  padding: 18px 40px;
+  font-size: 1.3rem;
+  background: #ff4d6d;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(255, 77, 109, 0.3);
+}

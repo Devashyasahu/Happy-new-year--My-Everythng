@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy New Year 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="start-overlay">
+  <div class="overlay-content">
+    <div class="hint-wrapper">
+       <span class="earbuds-icon">🎧</span>
+       <p class="earbuds-hint">Better with earbuds</p>
+    </div>
+    
+    <div class="mobile-instruction">
+      <p>Please visit and refresh this gift <strong>6 times</strong>... ✨</p>
+      <p class="sub-text">I have picked a different song for you each time.</p>
+    </div>
+    
+    <button id="start-btn">Open Your Gift 🎁</button>
+  </div>
+</div>
+
+<audio id="bgMusic" loop></audio>
+<canvas id="canvas"></canvas>
+
+<section id="intro">
+  <div class="glass-card">
+    <h1>Happy New Year 2026 💖</h1>
+    <p>Every second with you is a treasure</p>
+  </div>
+</section>
+
+<section id="letter">
+  <div class="scroll">
+    <p id="letterText"></p>
+  </div>
+</section>
+
+<section id="memories">
+  <div class="slideshow">
+    <img src="assests/images/1.jpeg" class="slide active">
+    <img src="assests/images/2.jpeg" class="slide">
+    <img src="assests/images/WhatsApp Image 2025-12-30 at 21.18.54.jpeg" class="slide">
+    <img src="assests/images/WhatsApp Image 2025-12-25 at 21.42.19.jpeg" class="slide">
+    <img src="assests/images/WhatsApp Image 2025-12-25 at 21.42.20.jpeg" class="slide"> 
+    <img src="assests/images/WhatsApp Image 2025-12-25 at 21.42.21.jpeg" class="slide">
+    <img src="assests/images/WhatsApp Image 2025-12-30 at 21.20.40.jpeg" class="slide">
+    <img src="assests/images/WhatsApp Image 2025-12-30 at 21.20.53.jpeg" class="slide">
+    <img src="assests/images/WhatsApp Image 2025-12-30 at 21.19.24.jpeg" class="slide">
+    <img src="assests/images/Screenshot (935).png" class="slide">
+  </div>
+</section>
+
+<section id="voice-section">
+  <div class="voice-box" id="voiceBox">
+    💌 Tap to hear my voice
+    <audio id="voiceAudio" src="assests/music/Standard-recording-11.mp3"></audio>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
